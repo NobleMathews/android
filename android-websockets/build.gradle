@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.0'
+    }
+}
+apply plugin: 'com.android.library'
+
+repositories {
+    google()
+    jcenter()
+}
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 29
+    }
+    sourceSets {
+        main.java.srcDirs = ['src/main/java']
+        main.resources.srcDirs = ['src/main/java']
+        main.aidl.srcDirs = ['src/main/java']
+        main.renderscript.srcDirs = ['src/main/java']
+        main.res.srcDirs = ['res']
+        main.assets.srcDirs = ['assets']
+    }
+    buildTypes {
+        debugTest.initWith(debug)
+        enterprisedebug.initWith(debug)
+        enterpriserelease.initWith(release)
+        mockdata.initWith(debug)
+    }
+    dependencies {
+        implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    }
+}
